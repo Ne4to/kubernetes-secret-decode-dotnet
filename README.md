@@ -1,5 +1,7 @@
 ﻿# Kubernetes Secret Decode .Net edition
 
+![Push NuGet package](https://github.com/Ne4to/kubernetes-secret-decode-dotnet/workflows/Push%20NuGet%20package/badge.svg)
+
 Inspired by https://github.com/ashleyschuett/kubernetes-secret-decode
 
 Reasons for existing this project:
