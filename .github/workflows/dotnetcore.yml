@@ -31,10 +31,10 @@ jobs:
         # Path of NuPkg
         nupkg-path: './src/KubernetesSecretDecode/nupkg/*.nupkg'
         # package repository owner
-        repo-owner: 'Ne4to'
+        repo-owner: 'ne4to'
         # user account
         gh-user: 'Ne4to'
         # access token
         token: ${{ secrets.GITHUB_TOKEN }}
         # skip publishing duplicated package(s)
-        skip-duplicate: true # default is true      
+        skip-duplicate: true # default is true
