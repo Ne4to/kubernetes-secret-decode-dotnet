@@ -9,7 +9,7 @@ Reasons for existing this project:
 ## Installation
 
 ```
-dotnet tool install --global KubernetesSecretDecode
+dotnet tool install --global --add-source https://nuget.pkg.github.com/ne4to/index.json KubernetesSecretDecode
 ```
 
 ### Add PowerShell alias

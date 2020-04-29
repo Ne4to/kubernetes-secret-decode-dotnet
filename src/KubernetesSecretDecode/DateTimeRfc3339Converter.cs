@@ -34,12 +34,12 @@ namespace KubernetesSecretDecode
             object? value,
             Type type)
         {
-            DateTime dateTime = (DateTime) value;
+            DateTime dateTime = (DateTime) value!;
             string str = XmlConvert.ToString(dateTime, XmlDateTimeSerializationMode.Utc);
             emitter.Emit(
-                (ParsingEvent) new Scalar(
-                    (string) null,
-                    (string) null,
+                new Scalar(
+                    null,
+                    null,
                     str,
                     ScalarStyle.Any,
                     true,

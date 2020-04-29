@@ -1,16 +1,12 @@
-name: .NET Core
+name: Push NuGet package
 
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET Core
@@ -26,7 +22,7 @@ jobs:
     - name: Pack
       run: dotnet pack --configuration Release --no-build
     - name: Push
-      run: dotnet nuget push ./src/KubernetesSecretDecode/nupkg/*.nupkg -k ${{ secrets.GITHUB_TOKEN }} -s https://nuget.pkg.github.com/ne4to/index.json
+      run: dotnet nuget push ./src/KubernetesSecretDecode/nupkg/*.nupkg -k ${{ secrets.GITHUB_TOKEN }} -s https://nuget.pkg.github.com/ne4to/index.json --skip-duplicate
     # - name: Push Nupkg to GitHub Packages
     #   uses: tanaka-takayoshi/nuget-publish-to-github-packages-action@v2.1
     #   with:
