@@ -19,7 +19,7 @@ dotnet tool install --global --add-source https://nuget.pkg.github.com/ne4to/ind
 Open `$PROFILE` in text editor and add following line
 
 ```powershell
-function kksd([Parameter(ValueFromRemainingArguments = $true)]$params) { & kubectl ksddotnet get secret -oyaml $params }
+function kksd() { & kubectl ksddotnet get secret -oyaml $args }
 ```
 
 ## Using
