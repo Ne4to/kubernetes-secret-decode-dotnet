@@ -9,9 +9,9 @@ Reasons for existing this project:
 - Secondary: Original kubernetes-secret-decode has no Windows compatible binaries in releases.
 
 ## Installation
-
+[![NuGet Badge](https://buildstats.info/nuget/kubernetessecretdecode?includePreReleases=true&dWidth=0)](https://www.nuget.org/packages/KubernetesSecretDecode/)
 ```
-dotnet tool install --global KubernetesSecretDecode
+dotnet tool install --global KubernetesSecretDecode <version>
 ```
 
 ### Add PowerShell alias

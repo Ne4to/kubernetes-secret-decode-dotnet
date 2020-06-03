@@ -117,9 +117,11 @@ namespace KubernetesSecretDecode
 
         private static string SerializeSecretToYaml(V1Secret secret)
         {
-            var serializer = new SerializerBuilder().WithNamingConvention(KubernetesNamingConvention.Instance)
+            var serializer = new SerializerBuilder()
+               .WithNamingConvention(KubernetesNamingConvention.Instance)
                .ConfigureDefaultValuesHandling(DefaultValuesHandling.OmitNull)
                .WithTypeConverter(DateTimeRfc3339Converter.Instance)
+               .WithEventEmitter(nextEmitter => new QuoteSurroundingEventEmitter(nextEmitter))
                .Build();
 
             return serializer.Serialize(secret);
