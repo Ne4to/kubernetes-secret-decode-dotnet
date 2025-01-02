@@ -1,22 +1,21 @@
 ﻿using System;
 
-namespace KubernetesSecretDecode
+namespace KubernetesSecretDecode;
+
+[Serializable]
+public class DecoderException : Exception
 {
-    [Serializable]
-    public class DecoderException : Exception
-    {
-        public DecoderException()
-        {
-        }
+  public DecoderException()
+  {
+  }
 
-        public DecoderException(string message)
-            : base(message)
-        {
-        }
+  public DecoderException(string message)
+      : base(message)
+  {
+  }
 
-        public DecoderException(string message, Exception inner)
-            : base(message, inner)
-        {
-        }
-    }
+  public DecoderException(string message, Exception inner)
+      : base(message, inner)
+  {
+  }
 }

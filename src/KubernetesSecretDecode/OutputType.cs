@@ -1,8 +1,7 @@
-﻿namespace KubernetesSecretDecode
+﻿namespace KubernetesSecretDecode;
+
+internal enum OutputType
 {
-    internal enum OutputType
-    {
-        Json,
-        Yaml
-    }
+  Json,
+  Yaml
 }

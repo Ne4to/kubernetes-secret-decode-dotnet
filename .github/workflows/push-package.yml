@@ -2,17 +2,18 @@ name: Push NuGet package
 
 on:
   push:
-    branches: [ master ]
+    tags:
+      - "v*.*.*"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4.0.0
       with:
-        dotnet-version: 3.1.101
+        global-json-file: global.json
     - name: Install dependencies
       run: dotnet restore
     - name: Build
@@ -20,6 +21,6 @@ jobs:
 #     - name: Test
 #       run: dotnet test --no-restore --verbosity normal
     - name: Pack
-      run: dotnet pack --configuration Release --no-build --version-suffix "rc.${GITHUB_RUN_NUMBER}+${GITHUB_SHA::8}"
+      run: dotnet pack --configuration Release --no-build
     - name: Push
       run: dotnet nuget push ./src/KubernetesSecretDecode/nupkg/*.nupkg -k ${{ secrets.NUGET_ORG_API_KEY }} -s https://api.nuget.org/v3/index.json --skip-duplicate
